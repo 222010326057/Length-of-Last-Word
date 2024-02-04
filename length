@@ -1,0 +1,21 @@
+def lengthOfLastWord(s):
+    length = 0
+    found_word = False
+    
+    # Traverse the string from right to left
+    for i in range(len(s) - 1, -1, -1):
+        # Skip trailing spaces
+        if s[i] == ' ' and not found_word:
+            continue
+        # If a non-space character is encountered, increment the length
+        elif s[i] != ' ':
+            length += 1
+            found_word = True
+        # If a space is encountered after encountering the last word, break the loop
+        elif found_word:
+            break
+    
+    return length
+
+s = "Hello World"
+print(lengthOfLastWord(s))  # Output: 5
